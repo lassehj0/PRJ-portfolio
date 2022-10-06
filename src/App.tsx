@@ -6,14 +6,15 @@ import About from './pages/aboutPage';
 import Skills from './pages/skillsPage';
 
 function App() {
-	return;
-	<BrowserRouter>
-		<Home />
+	return (
+		<BrowserRouter>
+			<Home />
 
-		<Route path='/' />
-		<Route path='/about' element={<About />} />
-		<Route path='/skills' element={<Skills />} />
-	</BrowserRouter>;
+			<Route path='/' />
+			<Route path='/about' element={<About />} />
+			<Route path='/skills' element={<Skills />} />
+		</BrowserRouter>
+	);
 }
 
 export default App;
