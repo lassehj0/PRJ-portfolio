@@ -5,6 +5,8 @@
 
 #scribble {
 	color: var(--grey);
+	font-family: 'La Belle Aurore', cursive;
+	font-size: 1.8rem;
 }
 
 .App {

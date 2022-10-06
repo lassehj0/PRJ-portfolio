@@ -15,7 +15,8 @@
 		"react-dom": "^18.2.0",
 		"react-scripts": "5.0.1",
 		"typescript": "^4.8.4",
-		"web-vitals": "^2.1.4"
+		"web-vitals": "^2.1.4",
+		"webfontloader": "^1.6.28"
 	},
 	"scripts": {
 		"prestart": "node --loader ts-node/esm ./src/aspnetcore-https.ts && node --loader ts-node/esm ./src/aspnetcore-react.ts",
@@ -44,6 +45,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^18.8.2",
+		"@types/webfontloader": "^1.6.35",
 		"react-router-dom": "^6.4.2",
 		"ts-node": "^10.9.1"
 	}
