@@ -3,7 +3,9 @@ import React from 'react';
 const Skills = () => {
 	return (
 		<>
-			<div id='hej'></div>
+			<div id='hej'>
+				<p>hej</p>
+			</div>
 		</>
 	);
 };
