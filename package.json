@@ -9,7 +9,6 @@
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^13.5.0",
 		"@types/jest": "^27.5.2",
-		"@types/node": "^16.11.64",
 		"@types/react": "^18.0.21",
 		"@types/react-dom": "^18.0.6",
 		"react": "^18.2.0",
@@ -42,5 +41,9 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"devDependencies": {
+		"@types/node": "^18.8.2",
+		"ts-node": "^10.9.1"
 	}
 }
