@@ -44,6 +44,8 @@
 	},
 	"devDependencies": {
 		"@types/node": "^18.8.2",
+		"@types/react-router-dom": "^5.3.3",
+		"react-router-dom": "^6.4.2",
 		"ts-node": "^10.9.1"
 	}
 }

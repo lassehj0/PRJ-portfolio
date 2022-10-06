@@ -1,18 +1,9 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import './App.css';
 
 function App() {
-  return (
-    <>
-      <p>Hello there</p>
-      <p>
-        <button onClick={sayHello}>Click me</button>
-      </p>
-    </>
-  );
-}
-function sayHello() {
-  alert("You clicked me!");
+	return <></>;
 }
 
 export default App;
