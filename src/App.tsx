@@ -3,14 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
-  return (
-    <>
-      <p>Hello there</p>
-      <p>
-        <button onClick={clickAlert}>Click me</button>
-      </p>
-    </>
-  );
+  return <></>;
 }
 function clickAlert() {
   alert("You clicked me!");
