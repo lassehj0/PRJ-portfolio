@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import picture from '../../public/nonbinary-person.png';
+import picture from '../nonbinary-person.png';
 
 const About = () => {
 	return (
