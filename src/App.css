@@ -1,3 +1,4 @@
+/*	#region general CSS	*/
 :root {
 	--black: #1d1d1d;
 	--grey: #515152;
@@ -5,6 +6,9 @@
 
 #root {
 	background-color: var(--black);
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
 }
 
 #scribble {
@@ -13,41 +17,13 @@
 	font-size: 1.8rem;
 }
 
-.App {
-	text-align: center;
-}
+/*	#endregion	*/
+/*	#region homepage	*/
 
-.App-logo {
-	height: 40vmin;
-	pointer-events: none;
-}
+/*	#endregion	*/
+/*	#region skills page	*/
 
-@media (prefers-reduced-motion: no-preference) {
-	.App-logo {
-		animation: App-logo-spin infinite 20s linear;
-	}
-}
+/*	#endregion	*/
+/*	#region about page	*/
 
-.App-header {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-}
-
-.App-link {
-	color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
-}
+/*	#endregion	*/
