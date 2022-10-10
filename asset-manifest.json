@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/PRJ-portfolio/static/css/main.0f0c738b.css",
-    "main.js": "/PRJ-portfolio/static/js/main.c7dc6df8.js",
+    "main.js": "/PRJ-portfolio/static/js/main.9a996a75.js",
     "index.html": "/PRJ-portfolio/index.html",
     "main.0f0c738b.css.map": "/PRJ-portfolio/static/css/main.0f0c738b.css.map",
-    "main.c7dc6df8.js.map": "/PRJ-portfolio/static/js/main.c7dc6df8.js.map"
+    "main.9a996a75.js.map": "/PRJ-portfolio/static/js/main.9a996a75.js.map"
   },
   "entrypoints": [
     "static/css/main.0f0c738b.css",
-    "static/js/main.c7dc6df8.js"
+    "static/js/main.9a996a75.js"
   ]
 }
