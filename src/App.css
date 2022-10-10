@@ -3,6 +3,10 @@
 	--grey: #515152;
 }
 
+#root {
+	background-color: var(--black);
+}
+
 #scribble {
 	color: var(--grey);
 	font-family: 'La Belle Aurore', cursive;
