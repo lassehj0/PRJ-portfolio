@@ -17,6 +17,10 @@
 	font-size: 1.8rem;
 }
 
+div {
+	display: flex;
+}
+
 /*	#endregion	*/
 /*	#region homepage	*/
 
@@ -26,4 +30,43 @@
 /*	#endregion	*/
 /*	#region about page	*/
 
+#about {
+	flex-direction: column;
+	column-count: 1;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	width: 50%;
+}
+
+#content {
+	flex-direction: row;
+}
+
+#description {
+	margin-right: 30px;
+	width: 50%;
+}
+
+#picture,
+#pic {
+	object-fit: contain;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#rightSide {
+	flex-direction: column;
+	column-count: 1;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+}
+
+#list ul {
+	display: flex;
+	flex-direction: column;
+}
 /*	#endregion	*/
