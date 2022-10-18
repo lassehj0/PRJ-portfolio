@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 //import { Link } from 'react-router-dom';
+import axios from 'axios';
 import picture from '../nonbinary-person.png';
 
-const About = () => {
+function About() {
+	var desc;
+	const axiosInstance = axios.create();
+	axiosInstance
+		.get('idk')
+		.then((response) => {
+			desc = response.data;
+		})
+		.catch(console.error);
+
 	return (
 		<>
 			<div id='about'>
@@ -10,12 +20,12 @@ const About = () => {
 					<h1>About me</h1>
 				</div>
 				<div id='description'>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-					reprehenderit consectetur asperiores excepturi culpa pariatur,
-					doloribus voluptatum dignissimos sint alias quia molestiae omnis est
-					ipsa odit, neque quaerat sapiente tempora porro repellendus, dolor
-					quasi dolorem ipsum? Consectetur voluptatum beatae libero sunt maxime
-					cupiditate optio doloribus, iure obcaecati animi fuga explicabo?
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum,
+					inventore voluptates ea similique harum illum aspernatur rem. Sed ea
+					ipsam deserunt, maxime ullam excepturi officiis possimus voluptatum
+					modi iusto unde qui mollitia repellat aliquid itaque eligendi, in
+					autem earum cupiditate praesentium odio magni fugit dolorum deleniti.
+					Nihil enim ab laborum.
 				</div>
 				<div id='list'>
 					<div id='ul'>
@@ -33,6 +43,6 @@ const About = () => {
 			</div>
 		</>
 	);
-};
+}
 
 export default About;
