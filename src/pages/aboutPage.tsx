@@ -21,25 +21,32 @@ function About() {
 				</div>
 				<div id='content'>
 					<div id='description'>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum,
-						inventore voluptates ea similique harum illum aspernatur rem. Sed ea
-						ipsam deserunt, maxime ullam excepturi officiis possimus voluptatum
-						modi iusto unde qui mollitia repellat aliquid itaque eligendi, in
-						autem earum cupiditate praesentium odio magni fugit dolorum
-						deleniti. Nihil enim ab laborum.
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+						porro minima delectus. Cupiditate rem ducimus non voluptatem in.
+						Pariatur enim quae perspiciatis dolores veritatis, tempore modi
+						similique quisquam error ad aspernatur obcaecati voluptatibus
+						incidunt, quis quos delectus aut quibusdam. Dignissimos recusandae
+						aspernatur ea facilis fugiat tempore expedita explicabo nesciunt
+						officiis aliquid libero corrupti veniam fuga nisi harum, possimus
+						iusto est voluptate voluptas quibusdam repellendus. Iusto aspernatur
+						quis nisi rerum ea quae id, dolorem voluptatum quasi ipsum ratione
+						corporis ipsa dignissimos praesentium molestiae sed neque hic
+						tempora provident debitis nemo odit sit sequi! Reprehenderit
+						exercitationem quidem voluptatibus blanditiis facilis quisquam
+						tenetur.
 					</div>
 					<div id='rightSide'>
 						<div id='picture'>
 							<img id='pic' src={picture} alt='insertPersonHere' />
 						</div>
 						<div id='list'>
-							<div id='ul'>
+							<ul>
 								<li className='item1'>1</li>
 								<li className='item2'>2</li>
 								<li className='item3'>3</li>
 								<li className='item4'>4</li>
 								<li className='item5'>5</li>
-							</div>
+							</ul>
 						</div>
 					</div>
 				</div>
