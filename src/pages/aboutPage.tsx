@@ -6,6 +6,9 @@ import picture from '../nonbinary-person.png';
 function About() {
 	var desc;
 	var lang: string[];
+	var xPos: number[];
+	var yPos: number[];
+
 	const axiosInstance = axios.create();
 	axiosInstance
 		.get('idk')
@@ -17,21 +20,25 @@ function About() {
 	axiosInstance
 		.get('languages')
 		.then((response) => {
+			lang = response.data;
 			response.data.each((i: number, elem: string) => {
 				var p = document.createElement('p');
+				p.className = 'scribble';
+				p.id = elem;
 				p.innerHTML = elem;
 				document.getElementById('langs')?.appendChild(p);
 			});
+			for (var i = 0; i < lang.length; i++) {}
 		})
 		.catch(console.error);
 
 	document.onmousemove = function (e) {
 		var x = e.clientX;
 		var y = e.clientY;
-		document.getElementById('cs')!.style.marginLeft = 100 + x / 10 + 'px';
-		document.getElementById('cs')!.style.marginTop = 100 + y / 10 + 'px';
-		document.getElementById('scribble')!.style.marginLeft = 100 - x / 10 + 'px';
-		document.getElementById('scribble')!.style.marginTop = 100 + y / 10 + 'px';
+		lang.forEach((entry, i) => {
+			document.getElementById(entry)!.style.marginLeft = 100 + x / 10 + 'px';
+			document.getElementById(entry)!.style.marginTop = 100 + x / 10 + 'px';
+		});
 	};
 
 	return (
