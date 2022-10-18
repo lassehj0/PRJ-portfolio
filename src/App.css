@@ -18,6 +18,12 @@
 	font-size: 1.8rem;
 }
 
+#hej {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
 div {
 	display: flex;
 }
@@ -30,12 +36,6 @@ div {
 
 /*	#endregion	*/
 /*	#region about page	*/
-
-#hej {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-}
 
 #about {
 	position: relative;
