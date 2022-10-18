@@ -9,12 +9,19 @@
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
+	color: white;
 }
 
-#scribble {
+.scribble {
 	color: var(--grey);
 	font-family: 'La Belle Aurore', cursive;
 	font-size: 1.8rem;
+}
+
+#hej {
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
 div {
@@ -31,6 +38,7 @@ div {
 /*	#region about page	*/
 
 #about {
+	position: relative;
 	flex-direction: column;
 	column-count: 1;
 	flex-wrap: nowrap;
@@ -46,7 +54,17 @@ div {
 
 #description {
 	margin-right: 30px;
-	width: 50%;
+	width: 45%;
+}
+
+#rightSide {
+	flex-direction: column;
+	column-count: 1;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	width: 45%;
 }
 
 #picture,
@@ -56,17 +74,4 @@ div {
 	max-height: 100%;
 }
 
-#rightSide {
-	flex-direction: column;
-	column-count: 1;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	width: 50%;
-}
-
-#list ul {
-	display: flex;
-	flex-direction: column;
-}
 /*	#endregion	*/
