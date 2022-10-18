@@ -2,10 +2,10 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./skillsPage.css";
-import "./sphere.tsx";
+
 //https://codepen.io/ryasan86/pen/bGpqdYV
 const Skills = () => {
+  var desc;
   const texts: string[] = [
     "React",
     "GraphQL",
@@ -32,7 +32,12 @@ const Skills = () => {
     "Ionic",
   ];
   const axiosInstance = axios.create();
-  axiosInstance.get().then(Response);
+  axiosInstance
+    .get("idk")
+    .then((response) => {
+      desc = response.data;
+    })
+    .catch(console.error);
 
   return (
     <>
@@ -41,7 +46,7 @@ const Skills = () => {
           <button id="homePageBtn">HomePage</button>
         </Link>
         <h1 id="title">Skills</h1>
-        <div>{JSON.stringify(string)}</div>
+        <div>{JSON.stringify(texts)}</div>
       </div>
 
       <div id="root"></div>
