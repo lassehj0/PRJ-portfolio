@@ -5,11 +5,23 @@ import picture from '../nonbinary-person.png';
 
 function About() {
 	var desc;
+	var lang: string[];
 	const axiosInstance = axios.create();
 	axiosInstance
 		.get('idk')
 		.then((response) => {
 			desc = response.data;
+		})
+		.catch(console.error);
+
+	axiosInstance
+		.get('languages')
+		.then((response) => {
+			response.data.each((i: number, elem: string) => {
+				var p = document.createElement('p');
+				p.innerHTML = elem;
+				document.getElementById('langs')?.appendChild(p);
+			});
 		})
 		.catch(console.error);
 
@@ -63,9 +75,7 @@ function About() {
 					<div id='floats'></div>
 				</div>
 			</div>
-			<p className='scribble' id='cs'>
-				C#
-			</p>
+			<div id='langs'></div>
 		</>
 	);
 }
