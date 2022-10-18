@@ -5,9 +5,10 @@ import picture from '../nonbinary-person.png';
 
 function About() {
 	var desc;
-	var lang: string[] = ['React', 'GraphQL'];
+	var lang: string[] = ['React', 'GraphQL', 'CSharp'];
 	var pos = [
 		[100, 100],
+		[200, 200],
 		[1436, 640],
 	];
 
@@ -37,14 +38,20 @@ function About() {
 		var x = e.clientX;
 		var y = e.clientY;
 		lang.forEach((entry, i) => {
-			document.getElementById(entry)!.style.marginLeft =
-				([1, 4, 5, 8, 10, 14, 15, 16, 19, 21].indexOf(i) !== -1
-					? pos[i][0] + x / 10
-					: pos[i][0] - x / 10) + 'px';
-			document.getElementById(entry)!.style.marginTop =
-				([2, 4, 7, 9, 10, 11, 15, 16, 17, 19, 22].indexOf(i) !== -1
-					? pos[i][1] + y / 10
-					: pos[i][1] - y / 10) + 'px';
+			var style = document.getElementById(entry)?.style;
+			if (style != null) {
+				style.marginLeft =
+					([1, 4, 5, 8, 10, 14, 15, 16, 19, 21].indexOf(i) != -1
+						? pos[i][0] + x / 20
+						: pos[i][0] - x / 20) + 'px';
+
+				style.marginTop =
+					([2, 4, 7, 9, 10, 11, 15, 16, 17, 19, 22].indexOf(i) != -1
+						? pos[i][1] + y / 20
+						: pos[i][1] - y / 20) + 'px';
+
+				style.position = 'absolute';
+			}
 		});
 	};
 
@@ -93,8 +100,11 @@ function About() {
 				<p className='scribble' id='React'>
 					React
 				</p>
-				<p className='scribble' id='GraphQl'>
+				<p className='scribble' id='GraphQL'>
 					GraphQl
+				</p>
+				<p className='scribble' id='CSharp'>
+					C#
 				</p>
 			</div>
 		</>
