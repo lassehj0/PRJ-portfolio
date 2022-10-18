@@ -5,9 +5,11 @@ import picture from '../nonbinary-person.png';
 
 function About() {
 	var desc;
-	var lang: string[];
-	var xPos: number[];
-	var yPos: number[];
+	var lang: string[] = ['React', 'GraphQL'];
+	var pos = [
+		[100, 100],
+		[1436, 640],
+	];
 
 	const axiosInstance = axios.create();
 	axiosInstance
@@ -28,7 +30,6 @@ function About() {
 				p.innerHTML = elem;
 				document.getElementById('langs')?.appendChild(p);
 			});
-			for (var i = 0; i < lang.length; i++) {}
 		})
 		.catch(console.error);
 
@@ -36,8 +37,14 @@ function About() {
 		var x = e.clientX;
 		var y = e.clientY;
 		lang.forEach((entry, i) => {
-			document.getElementById(entry)!.style.marginLeft = 100 + x / 10 + 'px';
-			document.getElementById(entry)!.style.marginTop = 100 + x / 10 + 'px';
+			document.getElementById(entry)!.style.marginLeft =
+				([1, 4, 5, 8, 10, 14, 15, 16, 19, 21].indexOf(i) !== -1
+					? pos[i][0] + x / 10
+					: pos[i][0] - x / 10) + 'px';
+			document.getElementById(entry)!.style.marginTop =
+				([2, 4, 7, 9, 10, 11, 15, 16, 17, 19, 22].indexOf(i) !== -1
+					? pos[i][1] + y / 10
+					: pos[i][1] - y / 10) + 'px';
 		});
 	};
 
@@ -82,7 +89,14 @@ function About() {
 					<div id='floats'></div>
 				</div>
 			</div>
-			<div id='langs'></div>
+			<div id='langs'>
+				<p className='scribble' id='React'>
+					React
+				</p>
+				<p className='scribble' id='GraphQl'>
+					GraphQl
+				</p>
+			</div>
 		</>
 	);
 }
