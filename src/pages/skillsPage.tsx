@@ -31,6 +31,16 @@ const Skills = () => {
     "TDD",
     "Ionic",
   ];
+
+  document.onmousemove = function (e) {
+    var x = e.clientX;
+    var y = e.clientY;
+    document.getElementById("cs")!.style.marginLeft = 100 + x / 10 + "px";
+    document.getElementById("cs")!.style.marginTop = 100 + y / 10 + "px";
+    document.getElementById("React")!.style.marginLeft = 100 + x / 10 + "px";
+    document.getElementById("React")!.style.marginTop = 100 + y / 10 + "px";
+  };
+
   const axiosInstance = axios.create();
   axiosInstance
     .get("idk")
@@ -42,14 +52,20 @@ const Skills = () => {
   return (
     <>
       <div id="skills">
+        <h1 id="title">Skills</h1>
         <Link to="/">
           <button id="homePageBtn">HomePage</button>
         </Link>
-        <h1 id="title">Skills</h1>
-        <div>{JSON.stringify(texts)}</div>
+        <div id="codeNames">{JSON.stringify(texts)}</div>
+        <div id="codeNames"> texts </div>
       </div>
 
-      <div id="root"></div>
+      <p className="scribble" id="cs">
+        C#
+      </p>
+      <p className="scribble" id="React">
+        React
+      </p>
     </>
   );
 };
