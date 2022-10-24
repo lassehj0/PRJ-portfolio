@@ -5,7 +5,13 @@ import picture from '../nonbinary-person.png';
 
 function About() {
 	var desc;
-	var lang: string[];
+	var lang: string[] = ['React', 'GraphQL', 'CSharp'];
+	var pos = [
+		[100, 100],
+		[200, 200],
+		[1436, 640],
+	];
+
 	const axiosInstance = axios.create();
 	axiosInstance
 		.get('idk')
@@ -17,8 +23,11 @@ function About() {
 	axiosInstance
 		.get('languages')
 		.then((response) => {
+			lang = response.data;
 			response.data.each((i: number, elem: string) => {
 				var p = document.createElement('p');
+				p.className = 'scribble';
+				p.id = elem;
 				p.innerHTML = elem;
 				document.getElementById('langs')?.appendChild(p);
 			});
@@ -28,10 +37,22 @@ function About() {
 	document.onmousemove = function (e) {
 		var x = e.clientX;
 		var y = e.clientY;
-		document.getElementById('cs')!.style.marginLeft = 100 + x / 10 + 'px';
-		document.getElementById('cs')!.style.marginTop = 100 + y / 10 + 'px';
-		document.getElementById('scribble')!.style.marginLeft = 100 - x / 10 + 'px';
-		document.getElementById('scribble')!.style.marginTop = 100 + y / 10 + 'px';
+		lang.forEach((entry, i) => {
+			var style = document.getElementById(entry)?.style;
+			if (style != null) {
+				style.marginLeft =
+					([1, 4, 5, 8, 10, 14, 15, 16, 19, 21].indexOf(i) != -1
+						? pos[i][0] + x / 20
+						: pos[i][0] - x / 20) + 'px';
+
+				style.marginTop =
+					([2, 4, 7, 9, 10, 11, 15, 16, 17, 19, 22].indexOf(i) != -1
+						? pos[i][1] + y / 20
+						: pos[i][1] - y / 20) + 'px';
+
+				style.position = 'absolute';
+			}
+		});
 	};
 
 	return (
@@ -75,7 +96,17 @@ function About() {
 					<div id='floats'></div>
 				</div>
 			</div>
-			<div id='langs'></div>
+			<div id='langs'>
+				<p className='scribble' id='React'>
+					React
+				</p>
+				<p className='scribble' id='GraphQL'>
+					GraphQl
+				</p>
+				<p className='scribble' id='CSharp'>
+					C#
+				</p>
+			</div>
 		</>
 	);
 }
