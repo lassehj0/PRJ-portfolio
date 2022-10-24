@@ -46,6 +46,7 @@ div {
 	align-items: center;
 	margin: auto;
 	width: 50%;
+	z-index: 5;
 }
 
 #content {
