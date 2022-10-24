@@ -46,6 +46,7 @@ div {
   align-items: center;
   margin: auto;
   width: 50%;
+  z-index: 5;
 }
 
 #content {
@@ -95,6 +96,10 @@ div {
   background-color: var(--grey);
   color: white;
   border: 2px solid var(--black);
+}
+
+#langs {
+  user-select: none;
 }
 
 /*	#endregion	*/
