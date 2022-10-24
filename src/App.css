@@ -1,31 +1,31 @@
 /*	#region general CSS	*/
 :root {
-  --black: #1d1d1d;
-  --grey: #515152;
+	--black: #1d1d1d;
+	--grey: #515152;
 }
 
 #root {
-  background-color: var(--black);
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  color: white;
+	background-color: var(--black);
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	color: white;
 }
 
 .scribble {
-  color: var(--grey);
-  font-family: "La Belle Aurore", cursive;
-  font-size: 1.8rem;
+	color: var(--grey);
+	font-family: 'La Belle Aurore', cursive;
+	font-size: 1.8rem;
 }
 
 #hej {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
 div {
-  display: flex;
+	display: flex;
 }
 
 /*	#endregion	*/
@@ -38,40 +38,40 @@ div {
 /*	#region about page	*/
 
 #about {
-  position: relative;
-  flex-direction: column;
-  column-count: 1;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  width: 50%;
+	position: relative;
+	flex-direction: column;
+	column-count: 1;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	width: 50%;
 }
 
 #content {
-  flex-direction: row;
+	flex-direction: row;
 }
 
 #description {
-  margin-right: 30px;
-  width: 45%;
+	margin-right: 30px;
+	width: 45%;
 }
 
 #rightSide {
-  flex-direction: column;
-  column-count: 1;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  width: 45%;
+	flex-direction: column;
+	column-count: 1;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	width: 45%;
 }
 
 #picture,
 #pic {
-  object-fit: contain;
-  max-width: 100%;
-  max-height: 100%;
+	object-fit: contain;
+	max-width: 100%;
+	max-height: 100%;
 }
 
 /*	#endregion	*/
