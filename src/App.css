@@ -46,6 +46,7 @@ div {
 	align-items: center;
 	margin: auto;
 	width: 50%;
+	z-index: 5;
 }
 
 #content {
@@ -72,6 +73,10 @@ div {
 	object-fit: contain;
 	max-width: 100%;
 	max-height: 100%;
+}
+
+#langs {
+	user-select: none;
 }
 
 /*	#endregion	*/
