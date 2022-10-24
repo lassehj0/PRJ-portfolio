@@ -1,24 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 //import { Link } from 'react-router-dom';
 import axios from 'axios';
 import picture from '../nonbinary-person.png';
 
 function About() {
 	var desc;
-	var lang: string[] = [
-		'React',
-		'GraphQL',
-		'CSharp',
-		'CSharp1',
-		'CSharp2',
-		'CSharp3',
-		'CSharp4',
-		'CSharp5',
-		'CSharp6',
-		'CSharp7',
-		'CSharp8',
-		'CSharp9',
-	];
+	var lang: string[] = [];
 	var pos = [
 		[100, 100],
 		[1236, 640],
@@ -34,27 +21,32 @@ function About() {
 		[886, 397],
 	];
 
-	const axiosInstance = axios.create();
-	axiosInstance
-		.get('idk')
-		.then((response) => {
-			desc = response.data;
-		})
-		.catch(console.error);
+	// const axiosInstance = axios.create();
+	// axiosInstance
+	// 	.get("page/1")
+	// 	.then((response) => {
+	// 		desc = response.data;
+	// 	})
+	// 	.catch(console.error);
 
-	axiosInstance
-		.get('languages')
-		.then((response) => {
-			lang = response.data;
-			response.data.each((i: number, elem: string) => {
-				var p = document.createElement('p');
-				p.className = 'scribble';
-				p.id = elem;
-				p.innerHTML = elem;
-				document.getElementById('langs')?.appendChild(p);
-			});
-		})
-		.catch(console.error);
+	useEffect(() => {
+		const axiosInstance = axios.create();
+		axiosInstance
+			.get('https://localhost:7062/api/Skills')
+			.then((response) => {
+				response.data.forEach((elem: any) => {
+					if (lang.includes(elem.skillName) === false) {
+						var p = document.createElement('p');
+						p.className = 'scribble';
+						p.id = elem.skillName;
+						p.innerHTML = elem.skillName;
+						document.getElementById('langs')?.appendChild(p);
+						lang.push(elem.skillName);
+					}
+				});
+			})
+			.catch(console.error);
+	}, []);
 
 	document.onmousemove = function (e) {
 		var x = e.clientX;
@@ -119,7 +111,7 @@ function About() {
 				</div>
 			</div>
 			<div id='langs'>
-				<p className='scribble' id='React'>
+				{/* <p className='scribble' id='React'>
 					React
 				</p>
 				<p className='scribble' id='GraphQL'>
@@ -154,7 +146,7 @@ function About() {
 				</p>
 				<p className='scribble' id='CSharp9'>
 					C#9
-				</p>
+				</p> */}
 			</div>
 		</>
 	);
