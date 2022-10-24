@@ -75,17 +75,18 @@ function Skills() {
           <Link to="/">
             <button id="homePageBtn">HomePage</button>
           </Link>
-          <div id="codeNames">{JSON.stringify(texts)}</div>
-          <div id="codeNames"> texts </div>
         </div>
       </div>
-      <a className="scribble" id="cs" onClick={() => code("reactBox")}>
+
+      <p className="scribble" id="cs" onClick={() => code("csBox")}>
         C#
-      </a>
-      <a className="scribble" id="React" onClick={() => code("reactBox")}>
+      </p>
+      <p className="scribble" id="React" onClick={() => code("reactBox")}>
         React
-      </a>
-      <div className="skillsBox" id="csBox"></div>
+      </p>
+      <div className="skillsBox" id="csBox">
+        <div id="csBox"></div>
+      </div>
       <div className="skillsBox" id="reactBox"></div>
     </>
   );
