@@ -75,4 +75,8 @@ div {
 	max-height: 100%;
 }
 
+#langs {
+	user-select: none;
+}
+
 /*	#endregion	*/
