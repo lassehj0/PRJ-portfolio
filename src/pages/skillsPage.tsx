@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 //https://codepen.io/ryasan86/pen/bGpqdYV
-const Skills = () => {
+function Skills() {
   var desc;
   const texts: string[] = [
     "React",
@@ -41,6 +41,8 @@ const Skills = () => {
     document.getElementById("React")!.style.marginTop = 100 + y / 10 + "px";
   };
 
+  var desc;
+  var lang: string[];
   const axiosInstance = axios.create();
   axiosInstance
     .get("idk")
@@ -49,25 +51,44 @@ const Skills = () => {
     })
     .catch(console.error);
 
+  axiosInstance
+    .get("languages")
+    .then((response) => {
+      response.data.each((i: number, elem: string) => {
+        var p = document.createElement("p");
+        p.innerHTML = elem;
+        document.getElementById("langs")?.appendChild(p);
+      });
+    })
+    .catch(console.error);
+
+  const code = (name: string) => {
+    var element = document.getElementById(name);
+    element!.style.opacity = "1";
+  };
+
   return (
     <>
-      <div id="skills">
-        <h1 id="title">Skills</h1>
-        <Link to="/">
-          <button id="homePageBtn">HomePage</button>
-        </Link>
-        <div id="codeNames">{JSON.stringify(texts)}</div>
-        <div id="codeNames"> texts </div>
+      <div id="hej">
+        <div id="skills">
+          <h1 id="title">Skills</h1>
+          <Link to="/">
+            <button id="homePageBtn">HomePage</button>
+          </Link>
+          <div id="codeNames">{JSON.stringify(texts)}</div>
+          <div id="codeNames"> texts </div>
+        </div>
       </div>
-
-      <p className="scribble" id="cs">
+      <a className="scribble" id="cs" onClick={() => code("reactBox")}>
         C#
-      </p>
-      <p className="scribble" id="React">
+      </a>
+      <a className="scribble" id="React" onClick={() => code("reactBox")}>
         React
-      </p>
+      </a>
+      <div className="skillsBox" id="csBox"></div>
+      <div className="skillsBox" id="reactBox"></div>
     </>
   );
-};
+}
 
 export default Skills;
