@@ -5,7 +5,7 @@ import picture from "../nonbinary-person.png";
 import { Link } from "react-router-dom";
 
 function About() {
-  var desc;
+  //var desc;
   var lang: string[] = [];
   var pos = [
     [100, 100],
@@ -36,17 +36,19 @@ function About() {
       .get("https://localhost:7062/api/Skills")
       .then((response) => {
         response.data.forEach((elem: any) => {
-          if (lang.includes(elem.skillName) === false) {
-            var p = document.createElement("p");
-            p.className = "scribble";
-            p.id = elem.skillName;
-            p.innerHTML = elem.skillName;
-            document.getElementById("langs")?.appendChild(p);
-            lang.push(elem.skillName);
-          }
+          var p = document.createElement("p");
+          p.className = "scribble";
+          p.id = elem.skillName;
+          p.innerHTML = elem.skillName;
+          p.style.marginLeft = pos[elem.skillID - 1][0] + "px";
+          p.style.marginTop = pos[elem.skillID - 1][1] + "px";
+          p.style.position = "absolute";
+          document.getElementById("langs")?.appendChild(p);
+          lang.push(elem.skillName);
         });
       })
       .catch(console.error);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   document.onmousemove = function (e) {
@@ -56,12 +58,12 @@ function About() {
       var style = document.getElementById(entry)?.style;
       if (style != null) {
         style.marginLeft =
-          ([1, 4, 5, 8, 10, 14, 15, 16, 19, 21].indexOf(i) != -1
+          ([1, 4, 5, 8, 10, 14, 15, 16, 19, 21].indexOf(i) !== -1
             ? pos[i][0] + x / 20
             : pos[i][0] - x / 20) + "px";
 
         style.marginTop =
-          ([2, 4, 7, 9, 10, 11, 15, 16, 17, 19, 22].indexOf(i) != -1
+          ([2, 4, 7, 9, 10, 11, 15, 16, 17, 19, 22].indexOf(i) !== -1
             ? pos[i][1] + y / 20
             : pos[i][1] - y / 20) + "px";
 
