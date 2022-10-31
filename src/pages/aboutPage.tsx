@@ -88,7 +88,7 @@ function About() {
                 }}
               >
                 <button className="button button1">
-                  <span>HomePage </span>
+                  <span>Home</span>
                 </button>{" "}
               </div>
             </Link>

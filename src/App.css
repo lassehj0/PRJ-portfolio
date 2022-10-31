@@ -107,7 +107,7 @@ div {
 }
 
 .button span:after {
-  content: "\21E6";
+  content: "\2190 ";
   position: absolute;
   opacity: 0;
   top: 0;
