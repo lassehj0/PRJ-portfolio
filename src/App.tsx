@@ -69,6 +69,8 @@ function App() {
 					([2, 4, 7, 9, 10, 11, 15, 16, 17, 19, 22].indexOf(i) !== -1
 						? pos[i][higher === false ? 1 : 0] * vh + y / 20
 						: pos[i][higher === false ? 1 : 0] * vh - y / 20) + 'px';
+
+				style.position = 'absolute';
 			}
 		});
 	};
@@ -95,7 +97,7 @@ function App() {
 					className='scribble'
 					id='GraphQL'
 					onClick={() => {
-						code('React');
+						code('GraphQL');
 					}}>
 					GraphQl
 				</p>
@@ -103,7 +105,7 @@ function App() {
 					className='scribble'
 					id='CSharp'
 					onClick={() => {
-						code('React');
+						code('CSharp');
 					}}>
 					C#
 				</p>
@@ -111,7 +113,7 @@ function App() {
 					className='scribble'
 					id='CSharp1'
 					onClick={() => {
-						code('React');
+						code('CSharp1');
 					}}>
 					C#1
 				</p>
@@ -119,7 +121,7 @@ function App() {
 					className='scribble'
 					id='CSharp2'
 					onClick={() => {
-						code('React');
+						code('CSharp2');
 					}}>
 					C#2
 				</p>
@@ -127,7 +129,7 @@ function App() {
 					className='scribble'
 					id='CSharp3'
 					onClick={() => {
-						code('React');
+						code('CSharp3');
 					}}>
 					C#3
 				</p>
@@ -135,7 +137,7 @@ function App() {
 					className='scribble'
 					id='CSharp4'
 					onClick={() => {
-						code('React');
+						code('CSharp4');
 					}}>
 					C#4
 				</p>
@@ -143,7 +145,7 @@ function App() {
 					className='scribble'
 					id='CSharp5'
 					onClick={() => {
-						code('React');
+						code('CSharp5');
 					}}>
 					C#5
 				</p>
@@ -151,7 +153,7 @@ function App() {
 					className='scribble'
 					id='CSharp6'
 					onClick={() => {
-						code('React');
+						code('CSharp6');
 					}}>
 					C#6
 				</p>
@@ -159,7 +161,7 @@ function App() {
 					className='scribble'
 					id='CSharp7'
 					onClick={() => {
-						code('React');
+						code('CSharp7');
 					}}>
 					C#7
 				</p>
@@ -167,7 +169,7 @@ function App() {
 					className='scribble'
 					id='CSharp8'
 					onClick={() => {
-						code('React');
+						code('CSharp8');
 					}}>
 					C#8
 				</p>
@@ -175,7 +177,7 @@ function App() {
 					className='scribble'
 					id='CSharp9'
 					onClick={() => {
-						code('React');
+						code('CSharp9');
 					}}>
 					C#9
 				</p>
