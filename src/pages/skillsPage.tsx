@@ -91,6 +91,8 @@ function Skills() {
           <Link to="/">
             <button id="homePageBtn">HomePage</button>
           </Link>
+          <div id="codeNames">{JSON.stringify(texts)}</div>
+          <div id="codeNames"> texts </div>
         </div>
       </div>
       <div id="langs">
