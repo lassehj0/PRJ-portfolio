@@ -6,43 +6,56 @@ import { Link } from "react-router-dom";
 //https://codepen.io/ryasan86/pen/bGpqdYV
 function Skills() {
   var desc;
-  const texts: string[] = [
+  var lang: string[] = [
     "React",
     "GraphQL",
-    "TypeScript",
-    "Prisma",
-    "Apollo",
-    "NodeJS",
-    "Express",
-    "JWT",
-    "Figma",
-    "Git",
-    "Netlify",
-    "Heroku",
-    "Angular",
-    "SSR",
-    "_Lodash",
-    "Python",
-    "Redux",
-    "REST",
-    "Cloudinary",
-    "Firebase",
-    "SCSS",
-    "TDD",
-    "Ionic",
+    "CSharp",
+    "CSharp1",
+    "CSharp2",
+    "CSharp3",
+    "CSharp4",
+    "CSharp5",
+    "CSharp6",
+    "CSharp7",
+    "CSharp8",
+    "CSharp9",
+  ];
+  var pos = [
+    [100, 100],
+    [1236, 640],
+    [170, 540],
+    [1264, 125],
+    [628, 100],
+    [565, 486],
+    [265, 345],
+    [413, 629],
+    [1186, 397],
+    [853, 579],
+    [218, 130],
+    [886, 397],
   ];
 
   document.onmousemove = function (e) {
     var x = e.clientX;
     var y = e.clientY;
-    document.getElementById("cs")!.style.marginLeft = 100 + x / 10 + "px";
-    document.getElementById("cs")!.style.marginTop = 100 + y / 10 + "px";
-    document.getElementById("React")!.style.marginLeft = 100 + x / 10 + "px";
-    document.getElementById("React")!.style.marginTop = 100 + y / 10 + "px";
+    lang.forEach((entry, i) => {
+      var style = document.getElementById(entry)?.style;
+      if (style != null) {
+        style.marginLeft =
+          ([1, 4, 5, 8, 10, 14, 15, 16, 19, 21].indexOf(i) != -1
+            ? pos[i][0] + x / 20
+            : pos[i][0] - x / 20) + "px";
+
+        style.marginTop =
+          ([2, 4, 7, 9, 10, 11, 15, 16, 17, 19, 22].indexOf(i) != -1
+            ? pos[i][1] + y / 20
+            : pos[i][1] - y / 20) + "px";
+
+        style.position = "absolute";
+      }
+    });
   };
 
-  var desc;
-  var lang: string[];
   const axiosInstance = axios.create();
   axiosInstance
     .get("idk")
@@ -64,7 +77,10 @@ function Skills() {
 
   const code = (name: string) => {
     var element = document.getElementById(name);
-    element!.style.opacity = "1";
+    element!.style.fontSize = "12rem";
+    var boxElement = document.getElementById("codeBox");
+    boxElement!.style.opacity = "1";
+    boxElement!.style.width = "";
   };
 
   return (
@@ -77,17 +93,48 @@ function Skills() {
           </Link>
         </div>
       </div>
-
-      <p className="scribble" id="cs" onClick={() => code("csBox")}>
-        C#
-      </p>
-      <p className="scribble" id="React" onClick={() => code("reactBox")}>
-        React
-      </p>
-      <div className="skillsBox" id="csBox">
-        <div id="csBox"></div>
+      <div id="langs">
+        <p className="scribble" id="React" onClick={() => code("React")}>
+          React
+        </p>
+        <p className="scribble" id="GraphQL">
+          GraphQl
+        </p>
+        <p className="scribble" id="CSharp" onClick={() => code("CSharp")}>
+          C#
+        </p>
+        <p className="scribble" id="CSharp1">
+          C#1
+        </p>
+        <p className="scribble" id="CSharp2">
+          C#2
+        </p>
+        <p className="scribble" id="CSharp3">
+          C#3
+        </p>
+        <p className="scribble" id="CSharp4">
+          C#4
+        </p>
+        <p className="scribble" id="CSharp5">
+          C#5
+        </p>
+        <p className="scribble" id="CSharp6">
+          C#6
+        </p>
+        <p className="scribble" id="CSharp7">
+          C#7
+        </p>
+        <p className="scribble" id="CSharp8">
+          C#8
+        </p>
+        <p className="scribble" id="CSharp9">
+          C#9
+        </p>
       </div>
-      <div className="skillsBox" id="reactBox"></div>
+
+      <div className="skillsBox">
+        <div id="codeBox" className="codeBox"></div>
+      </div>
     </>
   );
 }
