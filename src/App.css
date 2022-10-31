@@ -83,19 +83,45 @@ div {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .button1 {
   background-color: var(--black);
   color: white;
   border: 2px var(--black);
-  border-radius: 12px;
+  border-radius: 100%;
 }
 
-.button1:hover {
+/* .button1:hover {
   background-color: var(--grey);
   color: white;
   border: 2px solid var(--black);
+} */
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "\21E6";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-left: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  left: 0;
 }
 
 #langs {
