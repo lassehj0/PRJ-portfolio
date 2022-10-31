@@ -9,7 +9,17 @@ function About() {
 					<div id='title'>
 						<h1>About me</h1>
 						<Link to='/'>
-							<button className='button button1'>HomePage</button>
+							<div
+								style={{
+									position: 'absolute',
+									float: 'left',
+									bottom: 585,
+									left: -375,
+								}}>
+								<button className='button button1'>
+									<span>Home</span>
+								</button>{' '}
+							</div>
 						</Link>
 					</div>
 					<div id='content'>

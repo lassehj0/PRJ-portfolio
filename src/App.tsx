@@ -1,13 +1,27 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import axios from 'axios';
 import './App.css';
 import WebFont from 'webfontloader';
 import Home from './pages/homePage';
 import About from './pages/aboutPage';
 import Skills from './pages/skillsPage';
+import { /*getSkills,*/ code } from './axioscalls';
 
 function App() {
+	var lang: string[] = [
+		'React',
+		'GraphQL',
+		'CSharp',
+		'CSharp1',
+		'CSharp2',
+		'CSharp3',
+		'CSharp4',
+		'CSharp5',
+		'CSharp6',
+		'CSharp7',
+		'CSharp8',
+		'CSharp9',
+	];
 	var pos = [
 		[0.065, 0.135],
 		[0.805, 0.866],
@@ -23,7 +37,7 @@ function App() {
 		[0.577, 0.537],
 	];
 
-	var lang: string[] = [];
+	// var lang: string[] = [];
 	useEffect(() => {
 		WebFont.load({
 			google: {
@@ -31,25 +45,7 @@ function App() {
 			},
 		});
 
-		const axiosInstance = axios.create();
-		axiosInstance
-			.get('https://localhost:7062/api/Skills')
-			.then((response) => {
-				response.data.forEach((elem: any) => {
-					var p = document.createElement('p');
-					p.className = 'scribble';
-					p.id = elem.skillName;
-					p.innerHTML = elem.skillName;
-					p.style.marginLeft =
-						pos[elem.skillID - 1][0] * window.innerWidth + 'px';
-					p.style.marginTop =
-						pos[elem.skillID - 1][1] * window.innerHeight + 'px';
-					p.style.position = 'absolute';
-					document.getElementById('langs')?.appendChild(p);
-					lang.push(elem.skillName);
-				});
-			})
-			.catch(console.error);
+		// lang = getSkills(pos);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -57,20 +53,22 @@ function App() {
 	document.onmousemove = function (e) {
 		var x = e.clientX;
 		var y = e.clientY;
+		var vw = window.innerWidth;
+		var vh = window.innerHeight;
+		var higher: boolean;
+		if (vw < vh) higher = true;
 		lang.forEach((entry, i) => {
 			var style = document.getElementById(entry)?.style;
 			if (style != null) {
 				style.marginLeft =
 					([1, 4, 5, 8, 10, 14, 15, 16, 19, 21].indexOf(i) !== -1
-						? pos[i][0] * window.innerWidth + x / 20
-						: pos[i][0] * window.innerWidth - x / 20) + 'px';
+						? pos[i][higher === false ? 0 : 1] * vw + x / 20
+						: pos[i][higher === false ? 0 : 1] * vw - x / 20) + 'px';
 
 				style.marginTop =
 					([2, 4, 7, 9, 10, 11, 15, 16, 17, 19, 22].indexOf(i) !== -1
-						? pos[i][1] * window.innerHeight + y / 20
-						: pos[i][1] * window.innerHeight - y / 20) + 'px';
-
-				style.position = 'absolute';
+						? pos[i][higher === false ? 1 : 0] * vh + y / 20
+						: pos[i][higher === false ? 1 : 0] * vh - y / 20) + 'px';
 			}
 		});
 	};
@@ -81,46 +79,106 @@ function App() {
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/about' element={<About />} />
-					<Route path='/skills' element={<Skills />} />
+					<Route path='/skills' element={<Skills {...lang} />} />
 				</Routes>
 			</BrowserRouter>
 			<div id='langs'>
-				{/* <p className='scribble' id='React'>
-			React
-		</p>
-		<p className='scribble' id='GraphQL'>
-			GraphQl
-		</p>
-		<p className='scribble' id='CSharp'>
-			C#
-		</p>
-		<p className='scribble' id='CSharp1'>
-			C#1
-		</p>
-		<p className='scribble' id='CSharp2'>
-			C#2
-		</p>
-		<p className='scribble' id='CSharp3'>
-			C#3
-		</p>
-		<p className='scribble' id='CSharp4'>
-			C#4
-		</p>
-		<p className='scribble' id='CSharp5'>
-			C#5
-		</p>
-		<p className='scribble' id='CSharp6'>
-			C#6
-		</p>
-		<p className='scribble' id='CSharp7'>
-			C#7
-		</p>
-		<p className='scribble' id='CSharp8'>
-			C#8
-		</p>
-		<p className='scribble' id='CSharp9'>
-			C#9
-		</p> */}
+				<p
+					className='scribble'
+					id='React'
+					onClick={() => {
+						code('React');
+					}}>
+					React
+				</p>
+				<p
+					className='scribble'
+					id='GraphQL'
+					onClick={() => {
+						code('React');
+					}}>
+					GraphQl
+				</p>
+				<p
+					className='scribble'
+					id='CSharp'
+					onClick={() => {
+						code('React');
+					}}>
+					C#
+				</p>
+				<p
+					className='scribble'
+					id='CSharp1'
+					onClick={() => {
+						code('React');
+					}}>
+					C#1
+				</p>
+				<p
+					className='scribble'
+					id='CSharp2'
+					onClick={() => {
+						code('React');
+					}}>
+					C#2
+				</p>
+				<p
+					className='scribble'
+					id='CSharp3'
+					onClick={() => {
+						code('React');
+					}}>
+					C#3
+				</p>
+				<p
+					className='scribble'
+					id='CSharp4'
+					onClick={() => {
+						code('React');
+					}}>
+					C#4
+				</p>
+				<p
+					className='scribble'
+					id='CSharp5'
+					onClick={() => {
+						code('React');
+					}}>
+					C#5
+				</p>
+				<p
+					className='scribble'
+					id='CSharp6'
+					onClick={() => {
+						code('React');
+					}}>
+					C#6
+				</p>
+				<p
+					className='scribble'
+					id='CSharp7'
+					onClick={() => {
+						code('React');
+					}}>
+					C#7
+				</p>
+				<p
+					className='scribble'
+					id='CSharp8'
+					onClick={() => {
+						code('React');
+					}}>
+					C#8
+				</p>
+				<p
+					className='scribble'
+					id='CSharp9'
+					onClick={() => {
+						code('React');
+					}}>
+					C#9
+				</p>
 			</div>
 		</>
 	);
