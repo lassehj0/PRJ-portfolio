@@ -6,6 +6,7 @@ import Home from './pages/homePage';
 import About from './pages/aboutPage';
 import Skills from './pages/skillsPage';
 import { /*getSkills,*/ code } from './axioscalls';
+import { posSetter } from './pos';
 
 function App() {
 	var lang: string[] = [
@@ -47,33 +48,15 @@ function App() {
 
 		// lang = getSkills(pos);
 
+		if (window.innerWidth > 640) {
+			posSetter(lang, pos);
+			document.onmousemove = function (e) {
+				posSetter(lang, pos, e);
+			};
+		}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
-	document.onmousemove = function (e) {
-		var x = e.clientX;
-		var y = e.clientY;
-		var vw = window.innerWidth;
-		var vh = window.innerHeight;
-		var higher: boolean;
-		if (vw < vh) higher = true;
-		lang.forEach((entry, i) => {
-			var style = document.getElementById(entry)?.style;
-			if (style != null) {
-				style.marginLeft =
-					([1, 4, 5, 8, 10, 14, 15, 16, 19, 21].indexOf(i) !== -1
-						? pos[i][higher === false ? 0 : 1] * vw + x / 20
-						: pos[i][higher === false ? 0 : 1] * vw - x / 20) + 'px';
-
-				style.marginTop =
-					([2, 4, 7, 9, 10, 11, 15, 16, 17, 19, 22].indexOf(i) !== -1
-						? pos[i][higher === false ? 1 : 0] * vh + y / 20
-						: pos[i][higher === false ? 1 : 0] * vh - y / 20) + 'px';
-
-				style.position = 'absolute';
-			}
-		});
-	};
 
 	return (
 		<>
