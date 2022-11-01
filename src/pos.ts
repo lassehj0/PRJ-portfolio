@@ -7,7 +7,7 @@ export function posSetter(lang: string[], pos: number[][], e: any = 0) {
 	if (vw < vh) higher = true;
 	lang.forEach((entry, i) => {
 		var style = document.getElementById(entry)?.style;
-		if (style != null) {
+		if (style != null && document.getElementById(entry)?.title === 'setSwag') {
 			style.marginLeft =
 				([1, 4, 5, 8, 10, 14, 15, 16, 19, 21].indexOf(i) !== -1
 					? pos[i][higher === false ? 0 : 1] * vw + x / 20
