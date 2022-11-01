@@ -12,7 +12,7 @@ function Skills(props: string[]) {
             <button id="homePageBtn">HomePage</button>
           </Link>
         </div>
-        <div id="codeBox" title="setFlag"></div>
+        <div id="codeBox"></div>
       </div>
     </>
   );

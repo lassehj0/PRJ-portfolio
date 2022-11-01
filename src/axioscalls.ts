@@ -1,5 +1,4 @@
 import axios from "axios";
-var setFlag: boolean = true;
 
 export const code = (name: string) => {
   if (window.location.pathname === "/PRJ-portfolio/skills") {
@@ -12,12 +11,9 @@ export const code = (name: string) => {
       boxElement!.style.opacity = "0";
       boxElement!.style.width = "0%";
       boxElement!.style.transition = "0s";
-      element!.title = "setFlag";
-      boxElement!.title = "setFlag";
-    } else if (
-      element!.title === "setFlag" &&
-      boxElement!.title === "setFlag"
-    ) {
+      element!.title = "";
+      boxElement!.title = "";
+    } else if (element!.title === "" && boxElement!.title === "") {
       element!.style.transition = "2s";
       element!.style.fontSize = "12rem";
       element!.style.position = "absolute";
