@@ -1,51 +1,121 @@
-import bezier from 'bezier-easing';
+import { getSkills } from './axioscalls';
 
-export function posSetter(lang: string[], pos: number[][], e: any = 0) {
+var pos = [
+	[0.105, 0.135],
+	[0.805, 0.826],
+	[0.111, 0.731],
+	[0.823, 0.169],
+	[0.409, 0.135],
+	[0.368, 0.657],
+	[0.173, 0.467],
+	[0.269, 0.851],
+	[0.772, 0.537],
+	[0.555, 0.784],
+	[0.182, 0.206],
+	[0.577, 0.537],
+];
+
+// var lang = getSkills(pos);
+export var lang: string[] = [
+	'React',
+	'GraphQL',
+	'CSharp',
+	'CSharp1',
+	'CSharp2',
+	'CSharp3',
+	'CSharp4',
+	'CSharp5',
+	'CSharp6',
+	'CSharp7',
+	'CSharp8',
+	'CSharp9',
+];
+
+export function posSetter(e: any = 0) {
 	if (Object.prototype.toString.call(e) !== '[object Array]') {
 		var x = e === 0 ? 0 : e.clientX / 20;
 		var y = e === 0 ? 0 : e.clientY / 20;
 	} else {
-		var x = 0;
-		switch (e[0]) {
+		var x: number = 0;
+		switch (true) {
 			case e[0] >= 180:
-				x = 20;
+				x = 25;
 				break;
-			case e[0] >= 144 && e[0] < 180:
-				x = 16 + (e[0] - 144) * 0.2;
+			case e[0] >= 100 && e[0] < 180:
+				x = 23 + (e[0] - 100) / 40;
 				break;
-			case e[0] >= 108 && e[0] < 144:
-				x = 12 + (e[0] - 108) * 0.4;
+			case e[0] >= 60 && e[0] < 100:
+				x = 20 + (e[0] - 60) / 13.333;
 				break;
-			case e[0] >= 72 && e[0] < 108:
-				x = 8 + (e[0] - 72) * 0.6;
+			case e[0] >= 25 && e[0] < 60:
+				x = 12 + (e[0] - 25) / 4.375;
 				break;
-			case e[0] >= 36 && e[0] < 72:
-				x = 4 + (e[0] - 36) * 0.8;
+			case e[0] >= 10 && e[0] < 25:
+				x = 6 + (e[0] - 10) / 2.5;
 				break;
-			case e[0] >= 0 && e[0] < 36:
-				x = e[0];
+			case e[0] >= 0 && e[0] < 10:
+				x = e[0] / 1.667;
 				break;
 			case e[0] <= -180:
-				x = -20;
+				x = -25;
 				break;
-			case e[0] <= -144 && e[0] > -180:
-				x = -16 - (e[0] + 144) * 0.2;
+			case e[0] <= -100 && e[0] > -180:
+				x = -23 + (e[0] + 100) / 40;
 				break;
-			case e[0] <= -108 && e[0] > -144:
-				x = -12 - (e[0] + 108) * 0.4;
+			case e[0] <= -60 && e[0] > -100:
+				x = -20 + (e[0] + 60) / 13.333;
 				break;
-			case e[0] <= -72 && e[0] > -108:
-				x = -8 - (e[0] + 72) * 0.6;
+			case e[0] <= -25 && e[0] > -60:
+				x = -12 + (e[0] + 25) / 4.375;
 				break;
-			case e[0] <= -36 && e[0] > -72:
-				x = -4 - (e[0] + 36) * 0.8;
+			case e[0] <= -10 && e[0] > -25:
+				x = -6 + (e[0] + 10) / 2.5;
 				break;
-			case e[0] <= 0 && e[0] > -36:
-				x = e[0];
+			case e[0] <= 0 && e[0] > -10:
+				x = e[0] / 1.667;
 				break;
 		}
-		x += 20;
-		var y: number = e[1] + 20;
+		x += 30;
+		var y: number = 0;
+		switch (true) {
+			case e[0] >= 180:
+				y = 100;
+				break;
+			case e[0] >= 150 && e[0] < 180:
+				y = 95 + (e[0] - 150) / 6;
+				break;
+			case e[0] >= 130 && e[0] < 150:
+				y = 90 + (e[0] - 130) / 4;
+				break;
+			case e[0] >= 100 && e[0] < 130:
+				y = 80 + (e[0] - 100) / 3;
+				break;
+			case e[0] >= 60 && e[0] < 100:
+				y = 60 + (e[0] - 60) / 2;
+				break;
+			case e[0] >= 0 && e[0] < 60:
+				y = e[0];
+				break;
+			case e[0] <= -180:
+				y = -100;
+				break;
+			case e[0] <= -150 && e[0] > -180:
+				y = -95 + (e[0] + 150) / 6;
+				break;
+			case e[0] <= -130 && e[0] > -150:
+				y = -20 + (e[0] + 130) / 4;
+				break;
+			case e[0] <= -100 && e[0] > -130:
+				y = -12 + (e[0] + 100) / 3;
+				break;
+			case e[0] <= -60 && e[0] > -100:
+				y = -6 + (e[0] + 60) / 2;
+				break;
+			case e[0] <= 0 && e[0] > -60:
+				y = e[0];
+				break;
+		}
+		y = e[1] + 15;
 		console.log(x);
 	}
 	var vw = window.innerWidth;

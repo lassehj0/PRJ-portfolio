@@ -4,45 +4,17 @@ import useState from 'react-usestateref';
 import './App.css';
 import WebFont from 'webfontloader';
 import Home from './pages/homePage';
-import About from './pages/aboutPage';
-import Skills from './pages/skillsPage';
-import { /*getSkills,*/ code } from './axioscalls';
+import { code } from './axioscalls';
 import { posSetter } from './pos';
+
+const Skills = react.lazy(() => import('./pages/skillsPage'));
+const About = react.lazy(() => import('./pages/aboutPage'));
 
 declare const window: any;
 
 function App() {
 	const [coords, setCoords, coordsRef] = useState<number[]>(() => [0, 0]);
 	var gyro = null;
-
-	var lang: string[] = [
-		'React',
-		'GraphQL',
-		'CSharp',
-		'CSharp1',
-		'CSharp2',
-		'CSharp3',
-		'CSharp4',
-		'CSharp5',
-		'CSharp6',
-		'CSharp7',
-		'CSharp8',
-		'CSharp9',
-	];
-	var pos = [
-		[0.065, 0.135],
-		[0.805, 0.866],
-		[0.111, 0.731],
-		[0.823, 0.169],
-		[0.409, 0.135],
-		[0.368, 0.657],
-		[0.173, 0.467],
-		[0.269, 0.851],
-		[0.772, 0.537],
-		[0.555, 0.784],
-		[0.142, 0.176],
-		[0.577, 0.537],
-	];
 
 	useEffect(() => {
 		WebFont.load({
@@ -55,18 +27,17 @@ function App() {
 		document.getElementById('root')!.style.height = coolHeight;
 		document.getElementById('gyro')!.style.height = coolHeight;
 
-		// var lang = getSkills(pos);
-		posSetter(lang, pos);
+		posSetter();
 		if (window.innerWidth > 640) {
 			document.onmousemove = function (e) {
-				posSetter(lang, pos, e);
+				posSetter(e);
 			};
 		} else {
 			gyro = new window.Gyroscope({ frequency: 60 });
 			gyro.addEventListener('reading', (e: any) => {
 				setCoords((p) => [p[0] + e.target.y, p[1] + e.target.x]);
 
-				posSetter(lang, pos, coordsRef.current);
+				posSetter(coordsRef.current);
 			});
 
 			gyro.start();
@@ -81,7 +52,7 @@ function App() {
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/about' element={<About />} />
-					<Route path='/skills' element={<Skills {...lang} />} />
+					<Route path='/skills' element={<Skills />} />
 				</Routes>
 			</BrowserRouter>
 			<div
