@@ -18,7 +18,12 @@ export const code = (name: string) => {
 			element!.style.fontSize = '12rem';
 			element!.style.position = 'absolute';
 			element!.style.marginTop = '30%';
-			element!.style.marginLeft = '30%';
+			element!.style.marginLeft =
+				window.innerWidth * 0.3 -
+				(element?.offsetWidth !== undefined ? element?.offsetWidth : 0) *
+					4.444 +
+				'px';
+			console.log(element?.offsetWidth);
 			boxElement!.style.transition = '2s';
 			boxElement!.style.opacity = '1';
 			boxElement!.style.width = '80%';

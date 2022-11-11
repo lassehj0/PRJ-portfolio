@@ -15,6 +15,7 @@ declare const window: any;
 
 function App() {
 	const [coords, setCoords, coordsRef] = useState<number[]>(() => [0, 0]);
+	const ref = react.useRef(null);
 	var coolHeight = document.documentElement.clientHeight + 'px';
 	var gyro = null;
 
@@ -24,8 +25,6 @@ function App() {
 				families: ['La Belle Aurore'],
 			},
 		});
-
-		// document.getElementById('gyro')!.style.height = coolHeight;
 
 		posSetter();
 		if (window.innerWidth > 640) {
@@ -73,44 +72,9 @@ function App() {
 					</Routes>
 				</BrowserRouter>
 			</Suspense>
-			{/* <div
-				id='gyro'
-				style={{
-					width: '100vw',
-					height: '100vh',
-					justifyContent: 'center',
-					alignItems: 'center',
-					position: 'absolute',
-					overflow: 'hidden',
-					zIndex: 0,
-				}}>
-				<ul>
-					<li id='testing'>
-						{coords[0].toPrecision(
-							coords[0] >= 100 || coords[0] <= -100
-								? 4
-								: coords[0] >= 10 || coords[0] <= -10
-								? 3
-								: coords[0] >= 1 || coords[0] <= -1
-								? 2
-								: 1
-						)}
-					</li>
-					<li id='what'>
-						{coords[1].toPrecision(
-							coords[1] >= 100 || coords[1] <= -100
-								? 4
-								: coords[1] >= 10 || coords[1] <= -10
-								? 3
-								: coords[1] >= 1 || coords[1] <= -1
-								? 2
-								: 1
-						)}
-					</li>
-				</ul>
-			</div> */}
 			<div id='langs'>
 				<p
+					ref={ref}
 					className='scribble'
 					id='React'
 					onClick={() => {
@@ -118,6 +82,7 @@ function App() {
 					}}>
 					React
 				</p>
+				<p>{ref.current !== null ? ref.current['offsetWidth'] : 0}</p>
 				<p
 					className='scribble'
 					id='GraphQL'
