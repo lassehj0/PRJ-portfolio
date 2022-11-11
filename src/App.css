@@ -76,6 +76,7 @@ div {
 }
 /*	#endregion	*/
 /*	#region skills page	*/
+
 #skills {
 	position: relative;
 	flex-direction: column;
@@ -104,8 +105,34 @@ div {
 	opacity: 0;
 }
 #codeBox:hover {
-	height: 200px;
+	height: 250px;
 	transform: rotate(180deg);
+	opacity: 0;
+}
+
+#skillText1 {
+	transition: 2s;
+	opacity: 1;
+}
+
+#skillText2 {
+	transition: 2s;
+	opacity: 0;
+}
+
+#skillText:hover {
+	opacity: 0;
+}
+#skillLVL {
+	position: absolute;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 33%;
+	margin-left: 50%;
+	width: 100px;
+	color: var(--black);
+	z-index: 2;
 }
 
 /*	#endregion	*/
