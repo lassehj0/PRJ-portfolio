@@ -4,26 +4,33 @@ export const code = (name: string) => {
   if (window.location.pathname === "/PRJ-portfolio/skills") {
     var element = document.getElementById(name);
     var boxElement = document.getElementById("codeBox");
-
+    var textElement1 = document.getElementById("skillText1");
+    var textElement2 = document.getElementById("skillText2");
     if (element!.title === "setSwag" && boxElement!.title === "setSwag") {
       element!.style.fontSize = "1.8rem";
+      element!.style.marginTop = "";
+      element!.style.marginLeft = "";
       element!.style.transition = "0s";
       boxElement!.style.opacity = "0";
       boxElement!.style.width = "0%";
       boxElement!.style.transition = "0s";
       element!.title = "";
       boxElement!.title = "";
+      textElement1!.style.opacity = "1";
+      textElement2!.style.opacity = "0";
     } else if (element!.title === "" && boxElement!.title === "") {
       element!.style.transition = "2s";
-      element!.style.fontSize = "12rem";
+      element!.style.fontSize = "8rem";
       element!.style.position = "absolute";
-      element!.style.marginTop = "30%";
-      element!.style.marginLeft = "30%";
+      element!.style.marginTop = "25%";
+      element!.style.marginLeft = "20%";
       boxElement!.style.transition = "2s";
       boxElement!.style.opacity = "1";
-      boxElement!.style.width = "80%";
+      boxElement!.style.width = "20%";
       element!.title = "setSwag";
       boxElement!.title = "setSwag";
+      textElement1!.style.opacity = "0";
+      textElement2!.style.opacity = "1";
     }
   }
 };
