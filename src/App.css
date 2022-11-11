@@ -8,7 +8,6 @@
 	background-color: var(--black);
 	width: 100vw;
 	height: 100vh;
-	height: calc(var(--vh, 1vh) * 100);
 	overflow: hidden;
 	color: white;
 }
@@ -17,6 +16,7 @@
 	color: var(--grey);
 	font-family: 'La Belle Aurore', cursive;
 	font-size: 1.8rem;
+	transition-timing-function: cubic-bezier(0, 0.98, 0.03, 0);
 }
 
 @media (max-width: 640px) {
@@ -170,4 +170,83 @@ div {
 	user-select: none;
 }
 
+/*	#endregion	*/
+/*	#region	login page	*/
+
+/*	#endregion	*/
+/*	#region spinner		*/
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.spinner-container {
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+}
+
+.loading-spinner {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 150px;
+	height: 150px;
+	margin: -75px 0 0 -75px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #16a085;
+	animation: spin 1.7s linear infinite;
+	z-index: 11;
+}
+
+.loading-spinner:before {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #e74c3c;
+	animation: spin-reverse 0.6s linear infinite;
+}
+
+.loading-spinner:after {
+	content: '';
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #f9c922;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes spin-reverse {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
 /*	#endregion	*/

@@ -1,19 +1,21 @@
-import react, { useEffect } from 'react';
+import react, { useEffect, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import useState from 'react-usestateref';
 import './App.css';
 import WebFont from 'webfontloader';
 import Home from './pages/homePage';
+import About from './pages/aboutPage';
+import Skills from './pages/skillsPage';
+import Login from './pages/loginPage';
 import { code } from './axioscalls';
 import { posSetter } from './pos';
-
-const Skills = react.lazy(() => import('./pages/skillsPage'));
-const About = react.lazy(() => import('./pages/aboutPage'));
+import Spinner from './pages/spinner';
 
 declare const window: any;
 
 function App() {
 	const [coords, setCoords, coordsRef] = useState<number[]>(() => [0, 0]);
+	var coolHeight = document.documentElement.clientHeight + 'px';
 	var gyro = null;
 
 	useEffect(() => {
@@ -23,9 +25,7 @@ function App() {
 			},
 		});
 
-		var coolHeight = document.documentElement.clientHeight + 'px';
-		document.getElementById('root')!.style.height = coolHeight;
-		document.getElementById('gyro')!.style.height = coolHeight;
+		// document.getElementById('gyro')!.style.height = coolHeight;
 
 		posSetter();
 		if (window.innerWidth > 640) {
@@ -33,29 +33,47 @@ function App() {
 				posSetter(e);
 			};
 		} else {
-			gyro = new window.Gyroscope({ frequency: 60 });
-			gyro.addEventListener('reading', (e: any) => {
-				setCoords((p) => [p[0] + e.target.y, p[1] + e.target.x]);
+			try {
+				gyro = new window.Gyroscope({ frequency: 60 });
+				gyro.addEventListener('reading', (e: any) => {
+					setCoords((p) => [p[0] + e.target.y, p[1] + e.target.x]);
 
-				posSetter(coordsRef.current);
-			});
+					posSetter(coordsRef.current);
+				});
 
-			gyro.start();
+				gyro.addEventListener('error', (e: any) => {
+					console.error(`Gyroscope encounted error ${e}`);
+				});
+
+				gyro.start();
+			} catch (error) {
+				console.error(error);
+			}
 		}
+
+		window.addEventListener('resize', () => {
+			coolHeight = document.documentElement.clientHeight + 'px';
+			document.getElementById('root')!.style.height = coolHeight;
+			posSetter();
+		});
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
 		<>
-			<BrowserRouter basename={process.env.PUBLIC_URL}>
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/about' element={<About />} />
-					<Route path='/skills' element={<Skills />} />
-				</Routes>
-			</BrowserRouter>
-			<div
+			<Suspense fallback={<Spinner />}>
+				<BrowserRouter basename={process.env.PUBLIC_URL}>
+					<Routes>
+						<Route path='/' element={<Home />} />
+						<Route path='/about' element={<About />} />
+						<Route path='/skills' element={<Skills />} />
+						<Route path='/login' element={<Login />} />
+						<Route path='/spintest' element={<Spinner />} />
+					</Routes>
+				</BrowserRouter>
+			</Suspense>
+			{/* <div
 				id='gyro'
 				style={{
 					width: '100vw',
@@ -90,7 +108,7 @@ function App() {
 						)}
 					</li>
 				</ul>
-			</div>
+			</div> */}
 			<div id='langs'>
 				<p
 					className='scribble'
