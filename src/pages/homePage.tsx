@@ -11,6 +11,9 @@ const Home = () => {
 				<Link to='about'>
 					<button id='aboutBtn'>About me</button>
 				</Link>
+				<Link to='login'>
+					<button id='loginBtn'>login</button>
+				</Link>
 			</div>
 		</>
 	);

@@ -35,7 +35,7 @@ export const code = (name: string) => {
   }
 };
 
-var lang: string[] = [];
+var lang: string[][] = [];
 
 const axiosInstance = axios.create();
 export function getSkills(pos: number[][]) {
@@ -56,7 +56,12 @@ export function getSkills(pos: number[][]) {
           code(elem.skillName);
         };
         document.getElementById("langs")?.appendChild(p);
-        lang.push(elem.skillName);
+        lang.push([
+          elem.SkillID,
+          elem.SkillName,
+          elem.SkillLevel,
+          elem.MonthsOfExperience,
+        ]);
       });
     })
     .catch(console.error);
