@@ -1,7 +1,12 @@
 /*	#region general CSS	*/
+body {
+	overflow: hidden;
+}
+
 :root {
 	--black: #1d1d1d;
 	--grey: #515152;
+	--buttonpre: #16a085;
 }
 
 #root {
@@ -35,7 +40,8 @@ div {
 	border: none;
 	color: white;
 	margin: 30px 30px;
-	font-size: 16px;
+	font-size: 18px;
+	font-family: 'open sans', sans-serif;
 	cursor: pointer;
 	background-color: transparent;
 }
@@ -62,6 +68,12 @@ div {
 	opacity: 1;
 	left: 0;
 }
+
+@media (max-width: 480px) {
+	.button {
+		visibility: hidden;
+	}
+}
 /*	#endregion	*/
 /*	#endregion	*/
 /*	#region homepage	*/
@@ -72,6 +84,8 @@ div {
 	text-align: center;
 	background-color: transparent;
 	font-size: 18px;
+	font-family: 'open sans', sans-serif;
+	letter-spacing: 2px;
 	cursor: pointer;
 }
 
@@ -95,7 +109,7 @@ div {
 	margin: auto;
 	content: '';
 	z-index: 12;
-	background-color: #16a085;
+	background-color: var(--buttonpre);
 }
 
 .bottom {
@@ -163,6 +177,27 @@ div {
 	width: 35%;
 	flex-direction: row;
 	justify-content: space-between;
+	min-width: 400px;
+}
+
+@media (max-width: 480px) {
+	#btns {
+		min-width: 0;
+		width: fit-content;
+		flex-direction: column;
+		height: 40%;
+	}
+
+	#btn-wrapper {
+		justify-content: center;
+		align-items: center;
+	}
+
+	.btn {
+		border: 2px solid var(--buttonpre);
+		border-radius: 5px;
+		color: var(--buttonpre);
+	}
 }
 
 @keyframes appear {
@@ -283,6 +318,46 @@ div {
 
 #langs {
 	user-select: none;
+}
+
+@media (max-width: 480px) {
+	#about {
+		width: 80%;
+		height: 90%;
+		justify-content: space-around;
+	}
+
+	#description {
+		width: 100%;
+		margin-bottom: 40px;
+	}
+
+	#content {
+		flex-direction: column;
+		justify-content: space-between;
+		height: fit-content;
+	}
+
+	#rightSide {
+		flex-direction: row-reverse;
+		margin: 0;
+		width: 100%;
+		height: 30%;
+	}
+
+	#picture {
+		width: 50%;
+		height: 100%;
+	}
+
+	#pic {
+		width: 100%;
+		height: 100%;
+	}
+
+	#list {
+		width: 50%;
+	}
 }
 
 /*	#endregion	*/

@@ -16,15 +16,17 @@ declare const window: any;
 function App() {
 	const [coords, setCoords, coordsRef] = useState<number[]>(() => [0, 0]);
 	const ref = react.useRef(null);
-	var coolHeight = document.documentElement.clientHeight + 'px';
 	var gyro = null;
 
 	useEffect(() => {
 		WebFont.load({
 			google: {
-				families: ['La Belle Aurore'],
+				families: ['La Belle Aurore', 'Open Sans'],
 			},
 		});
+
+		var coolHeight = document.documentElement.clientHeight + 'px';
+		document.getElementById('root')!.style.height = coolHeight;
 
 		posSetter();
 		if (window.innerWidth > 640) {

@@ -45,7 +45,6 @@ function About() {
 							</div>
 						</div>
 					</div>
-					<div id='floats'></div>
 				</div>
 			</div>
 		</>
