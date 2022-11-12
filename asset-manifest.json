@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/PRJ-portfolio/static/css/main.5415f67a.css",
-    "main.js": "/PRJ-portfolio/static/js/main.dbad4fef.js",
+    "main.css": "/PRJ-portfolio/static/css/main.c9ef2cd5.css",
+    "main.js": "/PRJ-portfolio/static/js/main.e7edf654.js",
     "static/media/nonbinary-person.png": "/PRJ-portfolio/static/media/nonbinary-person.af7aa9c397616238f5c6.png",
     "index.html": "/PRJ-portfolio/index.html",
-    "main.5415f67a.css.map": "/PRJ-portfolio/static/css/main.5415f67a.css.map",
-    "main.dbad4fef.js.map": "/PRJ-portfolio/static/js/main.dbad4fef.js.map"
+    "main.c9ef2cd5.css.map": "/PRJ-portfolio/static/css/main.c9ef2cd5.css.map",
+    "main.e7edf654.js.map": "/PRJ-portfolio/static/js/main.e7edf654.js.map"
   },
   "entrypoints": [
-    "static/css/main.5415f67a.css",
-    "static/js/main.dbad4fef.js"
+    "static/css/main.c9ef2cd5.css",
+    "static/js/main.e7edf654.js"
   ]
 }
