@@ -6,22 +6,14 @@ function Skills() {
 	return (
 		<>
 			<div id='hej'>
+				<Link to='/'>
+					<button className='button button1'>
+						<span>Home</span>
+					</button>{' '}
+				</Link>
 				<div id='skills'>
 					<div id='title'>
 						<h1>Skills</h1>
-						<Link to='/'>
-							<div
-								style={{
-									position: 'absolute',
-									float: 'left',
-									bottom: 350,
-									left: -375,
-								}}>
-								<button className='button button1'>
-									<span>Home</span>
-								</button>{' '}
-							</div>
-						</Link>
 					</div>
 					<div id='skillText1'>Press a code language</div>
 					<div id='skillText2'>Hover the bar to see more information</div>

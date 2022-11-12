@@ -82,7 +82,6 @@ function App() {
 					}}>
 					React
 				</p>
-				<p>{ref.current !== null ? ref.current['offsetWidth'] : 0}</p>
 				<p
 					className='scribble'
 					id='GraphQL'
