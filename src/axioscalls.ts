@@ -10,12 +10,12 @@ export const code = (name: string) => {
     var boxElementFill = document.getElementById('codeBoxFill');
     if (element!.title === 'setSwag' && boxElement!.title === 'setSwag') {
       element!.style.fontSize = '1.8rem';
-      element!.style.marginTop = '';
-      element!.style.marginLeft = '';
+      element!.style.marginTop = '20';
+      element!.style.marginLeft = '20';
       element!.style.transition = '0s';
       boxElement!.style.opacity = '0';
       boxElement!.style.width = '0%';
-      boxElement!.style.transition = '0s';
+
       element!.title = '';
       boxElement!.title = '';
       textElement1!.style.opacity = '1';
@@ -31,7 +31,7 @@ export const code = (name: string) => {
         (element?.offsetWidth !== undefined ? element?.offsetWidth : 0) *
           4.444 +
         'px';
-      boxElement!.style.transition = '2s';
+
       boxElement!.style.opacity = '1';
       boxElement!.style.width = '30%';
       element!.title = 'setSwag';
@@ -39,7 +39,8 @@ export const code = (name: string) => {
       textElement1!.style.opacity = '0';
       textElement2!.style.opacity = '1';
       elementskillLVL!.style.opacity = '1';
-      boxElementFill!.style.width = '50%';
+
+      boxElementFill!.style.width = '30%';
     }
   }
 };
