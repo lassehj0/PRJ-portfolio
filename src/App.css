@@ -116,7 +116,7 @@ div {
 	width: 0;
 	height: 2px;
 	left: 50%;
-	top: 100%;
+	top: 0%;
 	transition: all 0.15s linear 0.45s;
 }
 
@@ -124,6 +124,7 @@ div {
 	width: 0;
 	height: 2px;
 	left: 0;
+	bottom: 0;
 	transition: all 0.15s linear 0.15s;
 }
 
@@ -131,6 +132,7 @@ div {
 	width: 0;
 	height: 2px;
 	right: 0;
+	bottom: 0;
 	transition: all 0.15s linear 0.15s;
 }
 
@@ -151,7 +153,6 @@ div {
 	width: 2px;
 	height: 0;
 	transition: all 0.15s linear 0.3s;
-	bottom: 0;
 }
 
 .right {
