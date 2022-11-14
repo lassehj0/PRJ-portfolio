@@ -16,17 +16,18 @@ declare const window: any;
 
 function App() {
   const [coords, setCoords, coordsRef] = useState<number[]>(() => [0, 0]);
-  var coolHeight = document.documentElement.clientHeight + 'px';
+  const ref = react.useRef(null);
   var gyro = null;
 
   useEffect(() => {
     WebFont.load({
       google: {
-        families: ['La Belle Aurore'],
+        families: ['La Belle Aurore', 'Open Sans'],
       },
     });
 
-    // document.getElementById('gyro')!.style.height = coolHeight;
+    var coolHeight = document.documentElement.clientHeight + 'px';
+    document.getElementById('root')!.style.height = coolHeight;
 
     posSetter();
     if (window.innerWidth > 640) {
@@ -37,7 +38,7 @@ function App() {
       try {
         gyro = new window.Gyroscope({ frequency: 60 });
         gyro.addEventListener('reading', (e: any) => {
-          setCoords((p: number[]) => [p[0] + e.target.y, p[1] + e.target.x]);
+          setCoords((p) => [p[0] + e.target.y, p[1] + e.target.x]);
 
           posSetter(coordsRef.current);
         });
@@ -76,6 +77,7 @@ function App() {
       </Suspense>
       <div id='langs'>
         <p
+          ref={ref}
           className='scribble'
           id='React'
           onClick={() => {
