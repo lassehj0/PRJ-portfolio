@@ -11,7 +11,7 @@ function About() {
 					</button>{' '}
 				</Link>
 				<div id='about'>
-					<div id='aboutTitle'>
+					<div id='title'>
 						<h1>About me</h1>
 					</div>
 					<div id='content'>
@@ -33,6 +33,15 @@ function About() {
 						<div id='rightSide'>
 							<div id='picture'>
 								<img id='pic' src={picture} alt='insertPersonHere' />
+							</div>
+							<div id='list'>
+								<ul>
+									<li className='item1'>1</li>
+									<li className='item2'>2</li>
+									<li className='item3'>3</li>
+									<li className='item4'>4</li>
+									<li className='item5'>5</li>
+								</ul>
 							</div>
 						</div>
 					</div>
