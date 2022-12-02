@@ -43,6 +43,18 @@ const Home = () => {
 						<div className='border topright'></div>
 						<div className='border topleft'></div>
 					</div>
+						<div id='btn-wrapper'>
+						<Link to='Projects'>
+							<button className='btn' id='ProjectsBtn'>
+							    Projects
+							</button>
+						</Link>
+						<div className='border bottom'></div>
+						<div className='border left'></div>
+						<div className='border right'></div>
+						<div className='border topright'></div>
+						<div className='border topleft'></div>
+					</div>
 				</div>
 			</div>
 		</>
