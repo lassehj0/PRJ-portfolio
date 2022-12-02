@@ -1,7 +1,24 @@
+import { useEffect, useState } from 'react';
 import picture from '../nonbinary-person.png';
 import { Link } from 'react-router-dom';
+import { getDescription, authorize } from '../axioscalls';
 
 function About() {
+	// const [desc, setDesc] = useState('Hello');
+	// const [title, setTitle] = useState('About me');
+
+	useEffect(() => {
+		// getDescription().then((d) => {
+		// 	setDesc(d.mainText);
+		// 	setTitle(d.headline);
+		// });
+
+		authorize().then((authorized) => {
+			if (authorized)
+				document.getElementById('editBtn')!.style.visibility = 'visible';
+		});
+	}, []);
+
 	return (
 		<>
 			<div id='hej'>
@@ -11,8 +28,8 @@ function About() {
 					</button>{' '}
 				</Link>
 				<div id='about'>
-					<div id='title'>
-						<h1>About me</h1>
+					<div id='aboutTitle'>
+						<h1>About me {/* title */}</h1>
 					</div>
 					<div id='content'>
 						<div id='description'>
@@ -28,8 +45,11 @@ function About() {
 							ipsum ratione corporis ipsa dignissimos praesentium molestiae sed
 							neque hic tempora provident debitis nemo odit sit sequi!
 							Reprehenderit exercitationem quidem voluptatibus blanditiis
-							facilis quisquam tenetur.
+							facilis quisquam tenetur. {/* desc*/}
 						</div>
+						<p id='editBtn' className='editAbout'>
+							edit
+						</p>
 						<div id='rightSide'>
 							<div id='picture'>
 								<img id='pic' src={picture} alt='insertPersonHere' />

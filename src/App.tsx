@@ -15,7 +15,6 @@ declare const window: any;
 
 function App() {
 	const [coords, setCoords, coordsRef] = useState<number[]>(() => [0, 0]);
-	const ref = react.useRef(null);
 	var gyro = null;
 
 	useEffect(() => {
@@ -76,7 +75,6 @@ function App() {
 			</Suspense>
 			<div id='langs'>
 				<p
-					ref={ref}
 					className='scribble'
 					id='React'
 					onClick={() => {

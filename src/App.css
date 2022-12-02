@@ -34,6 +34,11 @@ div {
 	display: flex;
 }
 
+#editBtn {
+	visibility: visible;
+	height: 10px;
+}
+
 /*	#region home btn	*/
 .button {
 	position: absolute;
@@ -346,6 +351,11 @@ div {
 
 #langs {
 	user-select: none;
+}
+
+.editAbout {
+	position: relative;
+	bottom: 0px;
 }
 
 @media (max-width: 480px) {

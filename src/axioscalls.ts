@@ -1,5 +1,11 @@
 import axios from 'axios';
 
+const config = {
+	headers: {
+		Authorization: 'Bearer ' + localStorage.getItem('token'),
+	},
+};
+
 export const code = (name: string) => {
 	if (window.location.pathname === '/PRJ-portfolio/skills') {
 		var element = document.getElementById(name);
@@ -47,10 +53,10 @@ export const code = (name: string) => {
 
 var lang: string[][] = [];
 
-const axiosInstance = axios.create();
+const axiosInstance = axios.create({ baseURL: 'https://localhost:7062/api/' });
 export function getSkills(pos: number[][]) {
 	axiosInstance
-		.get('https://localhost:7062/api/Skills')
+		.get('Skills')
 		.then((response) => {
 			response.data.forEach((elem: any) => {
 				var p = document.createElement('p');
@@ -80,19 +86,31 @@ export function getSkills(pos: number[][]) {
 }
 
 export function getDescription() {
-	axiosInstance
-		.get('https://localhost:7062/api/Texts/1')
+	return axiosInstance
+		.get('Texts')
 		.then((response) => {
-			return response;
+			return response.data[0];
 		})
 		.catch(console.error);
 }
 
 export function putDescription(desc: string) {
 	axiosInstance
-		.put('https://localhost:7062/api/Texts/1', desc)
+		.put('Texts/1', desc)
 		.then((response) => {
 			return response;
 		})
 		.catch(console.error);
+}
+
+export function authorize() {
+	return axiosInstance
+		.get('/users/loggedin', config)
+		.then(() => {
+			return true;
+		})
+		.catch((err) => {
+			console.log(err);
+			return false;
+		});
 }
