@@ -10,6 +10,8 @@ import Login from './pages/loginPage';
 import { code } from './axioscalls';
 import { posSetter } from './pos';
 import Spinner from './pages/spinner';
+import Projects from "./Component/Projects";
+
 
 declare const window: any;
 
@@ -71,6 +73,8 @@ function App() {
 						<Route path='/skills' element={<Skills />} />
 						<Route path='/login' element={<Login />} />
 						<Route path='/spintest' element={<Spinner />} />
+						<Route path='/projects' element={<Projects />} />
+
 					</Routes>
 				</BrowserRouter>
 			</Suspense>
