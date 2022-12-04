@@ -113,7 +113,7 @@ div {
 	position: absolute;
 	margin: auto;
 	content: '';
-	z-index: 12;
+	z-index: 1000;
 	background-color: var(--buttonpre);
 }
 
@@ -308,6 +308,9 @@ div {
 
 #aboutTitle {
 	margin: auto;
+	padding: 7px;
+	position: relative;
+	height: fit-content;
 }
 
 #about {
@@ -315,11 +318,11 @@ div {
 	flex-direction: column;
 	column-count: 1;
 	flex-wrap: nowrap;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	margin: auto;
 	width: 50%;
-	height: 70%;
+	height: 80%;
 	z-index: 5;
 }
 
@@ -330,7 +333,117 @@ div {
 #description {
 	margin-right: 30px;
 	width: 45%;
+	height: fit-content;
+	padding: 7px;
 }
+
+.authorized:hover {
+	border: 1px solid var(--buttonpre);
+	border-radius: 10px;
+	box-shadow: 2px 2px 3px -1px var(--buttonpre),
+		2px -2px 3px -1px var(--buttonpre), -2px 2px 3px -1px var(--buttonpre),
+		-2px -2px 3px -1px var(--buttonpre);
+}
+
+.aboutPopupBtn {
+	background-color: transparent;
+	border: none;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: 1;
+}
+
+.aboutPopupBtn h1 {
+	margin: 0;
+	color: white;
+}
+
+.aboutPopupBtn p {
+	color: white;
+	font-family: 'Segoe UI';
+	font-size: 16px;
+	text-align: left;
+}
+
+/*	#region popup	*/
+
+#popupWrapper {
+	border-radius: 20px;
+	background-color: white;
+	flex-direction: column;
+}
+
+.titleWrapper {
+	height: 90px;
+	width: 200px;
+}
+
+.descriptionWrapper {
+	height: 400px;
+	width: 350px;
+}
+
+#about-btn-wrapper button {
+	border: hidden;
+	color: var(--black);
+	padding: 5px 12px;
+	text-align: center;
+	background-color: transparent;
+	font-size: 14px;
+	font-family: 'open sans', sans-serif;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+
+/*	#region hover effect	*/
+#about-btn-wrapper {
+	position: relative;
+	width: fit-content;
+	height: fit-content;
+	margin: auto;
+}
+
+#about-btn-wrapper:hover .bottom {
+	width: 100%;
+	left: 0;
+	transition: all 0.15s linear 0.15s;
+}
+
+#about-btn-wrapper:hover .topleft,
+#about-btn-wrapper:hover .topright {
+	width: 50%;
+	transition: all 0.15s linear 0.45s;
+}
+
+#about-btn-wrapper:hover .left,
+#about-btn-wrapper:hover .right {
+	height: 100%;
+	transition: all 0.15s linear 0.3s;
+}
+
+/*	#endregion	*/
+
+#popupWrapper textarea {
+	margin-top: 10px;
+	margin-left: 6px;
+	border-radius: 10px;
+	resize: none;
+	font-size: 16px;
+	overflow: hidden;
+}
+
+.titleWrapper textarea {
+	width: 180px;
+	height: 18px;
+}
+
+.descriptionWrapper textarea {
+	width: 330px;
+	height: 320px;
+}
+
+/*	#endregion		*/
 
 #rightSide {
 	flex-direction: column;
@@ -351,11 +464,6 @@ div {
 
 #langs {
 	user-select: none;
-}
-
-.editAbout {
-	position: relative;
-	bottom: 0px;
 }
 
 @media (max-width: 480px) {

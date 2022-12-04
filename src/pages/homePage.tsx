@@ -13,11 +13,11 @@ const Home = () => {
 								Skills
 							</button>
 						</Link>
-						<div className='border bottom'></div>
-						<div className='border left'></div>
-						<div className='border right'></div>
-						<div className='border topright'></div>
-						<div className='border topleft'></div>
+						<div className='border bottom' />
+						<div className='border left' />
+						<div className='border right' />
+						<div className='border topright' />
+						<div className='border topleft' />
 					</div>
 					<div id='btn-wrapper'>
 						<Link to='about'>
@@ -43,10 +43,10 @@ const Home = () => {
 						<div className='border topright'></div>
 						<div className='border topleft'></div>
 					</div>
-						<div id='btn-wrapper'>
+					<div id='btn-wrapper'>
 						<Link to='Projects'>
 							<button className='btn' id='ProjectsBtn'>
-							    Projects
+								Projects
 							</button>
 						</Link>
 						<div className='border bottom'></div>

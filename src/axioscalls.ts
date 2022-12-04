@@ -101,6 +101,17 @@ export function putDescription(desc: string) {
 			return response;
 		})
 		.catch(console.error);
+	console.log('Description changed to ' + desc);
+}
+
+export function putTitle(title: string) {
+	axiosInstance
+		.put('Texts/1', title)
+		.then((response) => {
+			return response;
+		})
+		.catch(console.error);
+	console.log('Title changed to ' + title);
 }
 
 export function authorize() {
