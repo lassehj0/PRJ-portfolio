@@ -1,5 +1,6 @@
 import useFetch from "./useFetch";
-import ShowFiles from "./ShowFiles";
+import Post from "./Post";
+
 
 const Projects = () => {
   let { data: posts, isloading, errMsg } = useFetch(
@@ -7,9 +8,9 @@ const Projects = () => {
   );
 
   return (
-    <section className="ShowFiles">
+    <section className="posts">
 
-      {posts && posts.map((post) => <ShowFiles key={post.id} post={post} />)}
+      {posts && posts.map((post) => <Post key={post.id} post={post} />)}
       {isloading && <div> loading ... </div>}
       {!posts && !isloading && !errMsg && (
         <div className="not-found"> No Files </div>
