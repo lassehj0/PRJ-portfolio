@@ -1,9 +1,12 @@
 import react from 'react';
 import { putDescription, putTitle } from './axioscalls';
+import { lang } from './pos';
 
-const PopupElement = ({ sender }: { sender: string }) => {
+export const AboutPopup = ({ sender }: { sender: string }) => {
 	const [text, setText] = react.useState(
-		document.getElementById('aboutTitleText')!.innerHTML
+		document.getElementById(
+			sender === 'title' ? 'aboutTitleText' : 'description'
+		)!.innerHTML
 	);
 
 	function click() {
@@ -30,4 +33,16 @@ const PopupElement = ({ sender }: { sender: string }) => {
 	);
 };
 
-export default PopupElement;
+export const SkillsPopup = () => {
+	const [height, setHeight] = react.useState('1px');
+
+	react.useEffect(() => {
+		setHeight(lang.length * 22 + 'px');
+		console.log(lang.length * 22 + 'px');
+	}, []);
+	return (
+		<div
+			id='skillsWrapper'
+			style={{ height: height, marginBottom: height }}></div>
+	);
+};

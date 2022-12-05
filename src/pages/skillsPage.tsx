@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { authorize } from '../axioscalls';
+import Popup from 'reactjs-popup';
+import { SkillsPopup } from '../popup';
 
 //https://codepen.io/ryasan86/pen/bGpqdYV
 function Skills() {
 	useEffect(() => {
-		authorize().then((authorized) => {
-			if (authorized)
-				document.getElementById('editBtn')!.style.visibility = 'visible';
-		});
+		// authorize().then((authorized) => {
+		// 	if (authorized)
+		// });
 	}, []);
 
 	return (
@@ -35,6 +36,20 @@ function Skills() {
 						<div id='codeBoxFill'></div>
 					</div>
 				</label>
+				<Popup
+					trigger={
+						<div id='skills-btn-wrapper'>
+							<button>Edit skills</button>
+							<div className='border bottom' />
+							<div className='border left' />
+							<div className='border right' />
+							<div className='border topright' />
+							<div className='border topleft' />
+						</div>
+					}
+					position='top center'>
+					<SkillsPopup />
+				</Popup>
 			</div>
 		</>
 	);

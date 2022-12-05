@@ -1,4 +1,6 @@
 import axios from 'axios';
+import Popup from 'reactjs-popup';
+import React from 'react';
 
 const config = {
 	headers: {
@@ -73,10 +75,10 @@ export function getSkills(pos: number[][]) {
 				};
 				document.getElementById('langs')?.appendChild(p);
 				lang.push([
-					elem.SkillID,
-					elem.SkillName,
-					elem.SkillLevel,
-					elem.MonthsOfExperience,
+					elem.skillID,
+					elem.skillName,
+					elem.skillLevel,
+					elem.monthsOfExperience,
 				]);
 			});
 		})

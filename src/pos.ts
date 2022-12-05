@@ -15,21 +15,22 @@ var pos = [
 	[0.577, 0.537],
 ];
 
-// var lang = getSkills(pos);
-export var lang: string[] = [
-	'React',
-	'GraphQL',
-	'CSharp',
-	'CSharp1',
-	'CSharp2',
-	'CSharp3',
-	'CSharp4',
-	'CSharp5',
-	'CSharp6',
-	'CSharp7',
-	'CSharp8',
-	'CSharp9',
-];
+export var lang = getSkills(pos);
+
+// export var lang: string[] = [
+// 	'React',
+// 	'GraphQL',
+// 	'CSharp',
+// 	'CSharp1',
+// 	'CSharp2',
+// 	'CSharp3',
+// 	'CSharp4',
+// 	'CSharp5',
+// 	'CSharp6',
+// 	'CSharp7',
+// 	'CSharp8',
+// 	'CSharp9',
+// ];
 
 export function posSetter(e: any = 0) {
 	if (Object.prototype.toString.call(e) !== '[object Array]') {
@@ -123,8 +124,11 @@ export function posSetter(e: any = 0) {
 	var higher: boolean;
 	if (vw < vh) higher = true;
 	lang.forEach((entry, i) => {
-		var style = document.getElementById(entry)?.style;
-		if (style != null && document.getElementById(entry)?.title !== 'setSwag') {
+		var style = document.getElementById(entry[1])?.style;
+		if (
+			style != null &&
+			document.getElementById(entry[1])?.title !== 'setSwag'
+		) {
 			var len = entry.length * (higher === false ? 15 : 7.5);
 
 			style.marginLeft =

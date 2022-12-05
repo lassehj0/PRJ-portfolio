@@ -3,17 +3,18 @@ import picture from '../nonbinary-person.png';
 import { Link } from 'react-router-dom';
 import { getDescription, authorize } from '../axioscalls';
 import Popup from 'reactjs-popup';
-import PopupElement from '../popup';
+import { AboutPopup } from '../popup';
 
 function About() {
-	// const [desc, setDesc] = useState('Hello');
-	// const [title, setTitle] = useState('About me');
+	const [desc, setDesc] = useState('Hello');
+	const [title, setTitle] = useState('About me');
+	const [authorized, setAuthorized] = useState(false);
 
 	useEffect(() => {
-		// getDescription().then((d) => {
-		// 	setDesc(d.mainText);
-		// 	setTitle(d.headline);
-		// });
+		getDescription().then((d) => {
+			setDesc(d.mainText);
+			setTitle(d.headline);
+		});
 
 		// authorize().then((authorized) => {
 		// 	if (authorized)
@@ -22,11 +23,8 @@ function About() {
 
 		document.getElementById('description')!.className = 'authorized';
 		document.getElementById('aboutTitle')!.className = 'authorized';
+		setAuthorized(true);
 	}, []);
-
-	function openFunction() {
-		console.log('hej');
-	}
 
 	return (
 		<>
@@ -40,20 +38,20 @@ function About() {
 					<div id='aboutTitle'>
 						<Popup
 							trigger={
-								<button className='aboutPopupBtn'>
-									<h1 id='aboutTitleText'>About me {/* title */}</h1>
+								<button className='aboutPopupBtn' disabled={!authorized}>
+									<h1 id='aboutTitleText'>{title}</h1>
 								</button>
 							}>
-							<PopupElement sender='title' />
+							<AboutPopup sender='title' />
 						</Popup>
 					</div>
 					<div id='content'>
 						<div id='description'>
 							<Popup
 								trigger={
-									<button className='aboutPopupBtn'>
+									<button className='aboutPopupBtn' disabled={!authorized}>
 										<p>
-											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											{/*Lorem ipsum dolor sit amet consectetur adipisicing elit.
 											Maxime porro minima delectus. Cupiditate rem ducimus non
 											voluptatem in. Pariatur enim quae perspiciatis dolores
 											veritatis, tempore modi similique quisquam error ad
@@ -67,12 +65,13 @@ function About() {
 											dignissimos praesentium molestiae sed neque hic tempora
 											provident debitis nemo odit sit sequi! Reprehenderit
 											exercitationem quidem voluptatibus blanditiis facilis
-											quisquam tenetur. {/* desc*/}
+											quisquam tenetur.*/}{' '}
+											{desc}
 										</p>
 									</button>
 								}
 								position='right center'>
-								<PopupElement sender='description' />
+								<AboutPopup sender='description' />
 							</Popup>
 						</div>
 						<div id='rightSide'>

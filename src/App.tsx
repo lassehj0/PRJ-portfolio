@@ -76,7 +76,7 @@ function App() {
 				</BrowserRouter>
 			</Suspense>
 			<div id='langs'>
-				<p
+				{/* <p
 					className='scribble'
 					id='React'
 					onClick={() => {
@@ -171,7 +171,7 @@ function App() {
 						code('CSharp9');
 					}}>
 					C#9
-				</p>
+				</p> */}
 			</div>
 		</>
 	);
