@@ -6,12 +6,25 @@ import { Link } from 'react-router-dom';
 export default function projects() {
   return (
     <>
-      <Projects />
+    
+    <div id='hej'>
       <Link to='/'>
           <button className='button button1'>
             <span>Home</span>
           </button>{' '}
-        </Link>
+          </Link>
+
+        <div id='language'>
+        <div className="filter">
+        <button className="btn filter-btn active">all</button>
+        <button className="btn filter-btn">css</button>
+        <button className="btn filter-btn">javascript</button>
+        <button className="btn filter-btn">html</button>
+        </div>
+        </div>
+
+
+        </div>
     </>
   );
 }

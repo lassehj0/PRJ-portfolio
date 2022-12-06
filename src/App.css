@@ -471,10 +471,17 @@ div {
 /*	#region projects 	*/
 /*	#region about page	*/
 
-.posts {
+#hej {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+}
+#language{
+    position: relative;
+    margin: 50px auto;
+    padding: 0 10vw;
+    justify-content: center;
+	height: fit-content;
 }
 
 
